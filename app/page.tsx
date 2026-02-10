@@ -20,9 +20,21 @@ ChartJS.register(
   LinearScale,
   BarElement
 );
-
+type Asteroid = {
+  name: string;
+  is_hazardous: boolean;
+  risk_score: number;
+  velocity_kmph: number;
+  miss_distance_km: number;
+  diameter_km: number;
+  risk_level: string;
+};
+type StatProps = {
+  title: string;
+  value: string | number;
+};
 export default function Home() {
-  const [asteroids, setAsteroids] = useState([]);
+  const [asteroids, setAsteroids] = useState<Asteroid[]>([]);
   const [loading, setLoading] = useState(true);
   const [showHazardous, setShowHazardous] = useState(false);
 
@@ -202,7 +214,7 @@ export default function Home() {
   );
 }
 
-function Stat({title,value}) {
+function Stat({title,value}: StatProps) {
   return (
     <div className="bg-slate-900 p-4 rounded-2xl text-center shadow">
       <h3 className="text-slate-400">{title}</h3>
