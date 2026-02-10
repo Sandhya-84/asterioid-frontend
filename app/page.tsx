@@ -44,7 +44,7 @@ export default function Home() {
     );
 
   const filtered = (showHazardous
-    ? asteroids.filter(a => a.is_hazardous)
+    ? asteroids.filter((a: any)=>a.is_hazardous)
     : asteroids
   ).sort((a,b) => b.risk_score - a.risk_score);
 
